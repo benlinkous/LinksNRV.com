@@ -1,10 +1,597 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>LinksNRV.com</title>
-  </head>
-  <body>
-    <h1>Welcome to LinksNRV</h1>
-    <p>This site will highlight local action, service, and community connections in the New River Valley.</p>
-  </body>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LinksNRV — New River Valley, Virginia</title>
+<meta name="description" content="Local life in the New River Valley. Mom and pop stores, farm-to-table, restaurants, real estate, and the people who make the NRV worth staying for." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --soil:#1c1410;
+  --bark:#2d2118;
+  --wood:#4a3728;
+  --cream:#f7f2ea;
+  --cream2:#ede6d8;
+  --cream3:#e3d9c8;
+  --straw:#d4b896;
+  --rule:#c5b49e;
+  --muted:#8a7a68;
+  --faint:#b0a090;
+  --green:#2d4a1e;
+  --green2:#3d6428;
+  --green-light:#5a8a3c;
+  --green-pale:#eef4e8;
+  --copper:#8b4513;
+  --copper2:#a0522d;
+  --copper-light:#c47a45;
+  --sky:#2a4a6b;
+  --sky-light:#3d6e9e;
+  --serif:'Libre Baskerville',Georgia,serif;
+  --sans:'Barlow',sans-serif;
+  --condensed:'Barlow Condensed',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--soil);font-family:var(--sans);line-height:1.65;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+
+/* ── HEADER ── */
+.site-header{
+  background:var(--green);
+  border-bottom:4px solid var(--green2);
+  position:sticky;top:0;z-index:100;
+}
+.header-top{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.9rem 2.5rem;border-bottom:1px solid rgba(255,255,255,0.1);
+}
+.header-brand{
+  display:flex;flex-direction:column;
+}
+.brand-name{
+  font-family:var(--condensed);font-size:2rem;font-weight:800;
+  letter-spacing:0.05em;text-transform:uppercase;
+  color:#fff;line-height:1;
+}
+.brand-name em{color:var(--copper-light);font-style:normal;}
+.brand-sub{
+  font-family:var(--sans);font-size:0.62rem;font-weight:500;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(255,255,255,0.55);margin-top:0.2rem;
+}
+.header-location{
+  text-align:right;
+  font-family:var(--condensed);font-size:0.7rem;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(255,255,255,0.45);line-height:1.6;
+}
+.header-nav{
+  display:flex;align-items:center;
+  padding:0;overflow-x:auto;
+}
+.header-nav a{
+  font-family:var(--condensed);font-size:0.7rem;font-weight:600;
+  letter-spacing:0.15em;text-transform:uppercase;
+  color:rgba(255,255,255,0.7);
+  padding:0.65rem 1.4rem;border-right:1px solid rgba(255,255,255,0.1);
+  transition:all 0.2s;white-space:nowrap;
+}
+.header-nav a:hover{background:rgba(255,255,255,0.1);color:#fff;}
+.nav-toggle{
+  display:none;background:none;border:none;
+  font-family:var(--condensed);font-size:0.7rem;font-weight:600;
+  letter-spacing:0.15em;text-transform:uppercase;
+  color:rgba(255,255,255,0.7);cursor:pointer;
+  padding:0.65rem 1.4rem;
+}
+
+/* ── HERO ── */
+.hero{
+  background:var(--soil);
+  min-height:520px;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:4rem 2.5rem 3rem;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 100% 80% at 60% 30%,rgba(45,74,30,0.35) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 100% at 0% 100%,rgba(139,69,19,0.2) 0%,transparent 50%);
+}
+.hero-inner{max-width:900px;position:relative;z-index:1;}
+.hero-kicker{
+  font-family:var(--condensed);font-size:0.7rem;font-weight:600;
+  letter-spacing:0.3em;text-transform:uppercase;color:var(--copper-light);
+  margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;
+}
+.hero-kicker::before{content:'';width:28px;height:1px;background:var(--copper-light);}
+.hero h1{
+  font-family:var(--condensed);font-size:clamp(2.8rem,7vw,5.5rem);
+  font-weight:800;letter-spacing:0.02em;text-transform:uppercase;
+  color:#fff;line-height:0.95;margin-bottom:1.25rem;
+}
+.hero h1 span{color:var(--green-light);}
+.hero-desc{
+  font-size:1.1rem;font-weight:300;color:rgba(255,255,255,0.7);
+  max-width:580px;line-height:1.75;margin-bottom:2rem;
+}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{
+  display:inline-block;background:var(--green2);color:#fff;
+  font-family:var(--condensed);font-size:0.72rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;
+  padding:0.75rem 1.75rem;border:2px solid var(--green-light);
+  transition:all 0.2s;
+}
+.btn-primary:hover{background:var(--green-light);}
+.btn-outline{
+  display:inline-block;background:transparent;color:rgba(255,255,255,0.8);
+  font-family:var(--condensed);font-size:0.72rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;
+  padding:0.75rem 1.75rem;border:2px solid rgba(255,255,255,0.25);
+  transition:all 0.2s;
+}
+.btn-outline:hover{border-color:rgba(255,255,255,0.6);color:#fff;}
+
+/* ── TICKER ── */
+.ticker{
+  background:var(--copper);
+  padding:0.6rem 2.5rem;
+  display:flex;align-items:center;gap:1.5rem;
+  border-bottom:1px solid var(--copper2);
+  overflow:hidden;
+}
+.ticker-label{
+  font-family:var(--condensed);font-size:0.65rem;font-weight:700;
+  letter-spacing:0.2em;text-transform:uppercase;color:#fff;
+  white-space:nowrap;background:var(--copper2);
+  padding:0.2rem 0.75rem;flex-shrink:0;
+}
+.ticker-items{
+  display:flex;gap:3rem;overflow:hidden;
+  font-family:var(--condensed);font-size:0.7rem;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.85);
+  white-space:nowrap;
+}
+
+/* ── MAIN LAYOUT ── */
+.main-wrap{max-width:1140px;margin:0 auto;padding:3rem 2.5rem;}
+
+.section-header{
+  display:flex;align-items:baseline;justify-content:space-between;
+  margin-bottom:1.5rem;padding-bottom:0.75rem;
+  border-bottom:3px solid var(--soil);
+}
+.section-title{
+  font-family:var(--condensed);font-size:1.5rem;font-weight:800;
+  letter-spacing:0.08em;text-transform:uppercase;color:var(--soil);
+}
+.section-link{
+  font-family:var(--condensed);font-size:0.62rem;font-weight:600;
+  letter-spacing:0.15em;text-transform:uppercase;color:var(--copper);
+  transition:color 0.2s;
+}
+.section-link:hover{color:var(--soil);}
+
+/* ── FEATURED GRID ── */
+.featured-grid{
+  display:grid;grid-template-columns:1.5fr 1fr;
+  gap:2px;background:var(--rule);margin-bottom:2px;
+}
+.feat-main{background:var(--cream);padding:2rem;}
+.feat-main-img{
+  height:220px;background:var(--green);margin:-2rem -2rem 1.5rem;
+  display:flex;align-items:flex-end;padding:1.25rem;
+  background:linear-gradient(135deg,var(--green) 0%,var(--bark) 100%);
+  position:relative;overflow:hidden;
+}
+.feat-main-img::after{
+  content:'NRV';position:absolute;right:-10px;top:-10px;
+  font-family:var(--condensed);font-size:8rem;font-weight:800;
+  color:rgba(255,255,255,0.04);line-height:1;
+}
+.feat-img-label{
+  font-family:var(--condensed);font-size:0.6rem;font-weight:700;
+  letter-spacing:0.2em;text-transform:uppercase;
+  background:var(--copper);color:#fff;padding:0.25rem 0.6rem;
+  position:relative;z-index:1;
+}
+.feat-tag{
+  font-family:var(--condensed);font-size:0.6rem;font-weight:700;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);
+  margin-bottom:0.6rem;
+}
+.feat-headline{
+  font-family:var(--serif);font-size:1.6rem;font-weight:700;
+  line-height:1.2;color:var(--soil);margin-bottom:0.75rem;
+}
+.feat-deck{font-size:0.92rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;}
+.feat-byline{
+  font-family:var(--condensed);font-size:0.58rem;font-weight:600;
+  letter-spacing:0.15em;text-transform:uppercase;color:var(--faint);
+}
+.feat-sidebar{background:var(--cream2);display:flex;flex-direction:column;gap:2px;background:var(--rule);}
+.feat-side-card{background:var(--cream2);padding:1.5rem;}
+.feat-side-card+.feat-side-card{border-top:2px solid var(--rule);}
+
+/* ── STORY CARDS ── */
+.stories-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;background:var(--rule);margin-bottom:3rem;
+}
+.story-card{background:var(--cream);padding:1.5rem;}
+.story-cat{
+  font-family:var(--condensed);font-size:0.58rem;font-weight:700;
+  letter-spacing:0.2em;text-transform:uppercase;
+  margin-bottom:0.5rem;
+}
+.cat-food{color:var(--copper);}
+.cat-business{color:var(--green2);}
+.cat-community{color:var(--sky);}
+.cat-realestate{color:var(--wood);}
+.story-headline{
+  font-family:var(--serif);font-size:1.1rem;font-weight:700;
+  line-height:1.25;color:var(--soil);margin-bottom:0.5rem;
+  transition:color 0.2s;cursor:default;
+}
+.story-headline:hover{color:var(--copper);}
+.story-deck{font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:0.75rem;}
+.story-meta{
+  font-family:var(--condensed);font-size:0.55rem;font-weight:600;
+  letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);
+}
+.story-coming{
+  font-family:var(--condensed);font-size:0.6rem;font-weight:600;
+  letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--faint);background:var(--cream3);
+  padding:0.25rem 0.6rem;display:inline-block;margin-top:0.5rem;
+}
+
+/* ── PILLARS ── */
+.pillars-band{
+  background:var(--green);
+  padding:4rem 2.5rem;margin-bottom:0;
+}
+.pillars-inner{max-width:1140px;margin:0 auto;}
+.pillars-heading{
+  font-family:var(--condensed);font-size:clamp(1.8rem,4vw,3rem);
+  font-weight:800;letter-spacing:0.06em;text-transform:uppercase;
+  color:#fff;margin-bottom:0.4rem;
+}
+.pillars-sub{
+  font-family:var(--condensed);font-size:0.65rem;font-weight:600;
+  letter-spacing:0.25em;text-transform:uppercase;
+  color:rgba(255,255,255,0.45);margin-bottom:2.5rem;
+}
+.pillars-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:2px;background:rgba(255,255,255,0.1);
+}
+.pillar{
+  background:rgba(0,0,0,0.2);padding:1.75rem 1.25rem;
+  text-align:center;transition:background 0.2s;cursor:default;
+}
+.pillar:hover{background:rgba(0,0,0,0.35);}
+.pillar-icon{font-size:1.75rem;margin-bottom:0.75rem;display:block;}
+.pillar-name{
+  font-family:var(--condensed);font-size:0.85rem;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;color:#fff;
+  margin-bottom:0.4rem;
+}
+.pillar-desc{font-size:0.78rem;color:rgba(255,255,255,0.5);line-height:1.5;}
+
+/* ── ABOUT STRIP ── */
+.about-band{
+  background:var(--cream2);
+  border-top:4px solid var(--soil);
+  border-bottom:1px solid var(--rule);
+  padding:3.5rem 2.5rem;
+}
+.about-inner{
+  max-width:1140px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 2.5rem 1fr;
+  gap:3rem;align-items:center;
+}
+.about-divider{
+  width:2px;background:var(--rule);height:100%;margin:0 auto;
+}
+.about-text h2{
+  font-family:var(--condensed);font-size:clamp(1.5rem,3vw,2.2rem);
+  font-weight:800;letter-spacing:0.05em;text-transform:uppercase;
+  color:var(--soil);margin-bottom:0.75rem;
+}
+.about-text p{font-size:0.95rem;color:var(--muted);line-height:1.8;margin-bottom:0.75rem;}
+.about-text p strong{color:var(--soil);}
+.about-links h3{
+  font-family:var(--condensed);font-size:1rem;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;color:var(--soil);
+  margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--soil);
+}
+.link-list{list-style:none;display:flex;flex-direction:column;gap:0;}
+.link-list li{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.6rem 0;border-bottom:1px solid var(--rule);
+  font-family:var(--condensed);font-size:0.65rem;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+}
+.link-list li:last-child{border-bottom:none;}
+.link-label{color:var(--muted);}
+.link-val{color:var(--copper);transition:color 0.2s;}
+.link-val:hover{color:var(--soil);}
+
+/* ── FOOTER ── */
+.site-footer{
+  background:var(--soil);color:rgba(255,255,255,0.6);
+  border-top:4px solid var(--copper);padding:2.5rem 2.5rem;
+}
+.footer-inner{
+  max-width:1140px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;
+}
+.footer-brand{
+  font-family:var(--condensed);font-size:1.4rem;font-weight:800;
+  letter-spacing:0.08em;text-transform:uppercase;color:#fff;
+}
+.footer-brand em{color:var(--copper-light);font-style:normal;}
+.footer-tagline{
+  font-family:var(--condensed);font-size:0.58rem;font-weight:500;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);margin-top:0.2rem;
+}
+.footer-copy{
+  font-family:var(--condensed);font-size:0.58rem;font-weight:500;
+  letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.25);
+}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity 0.6s,transform 0.6s;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .header-top{padding:0.85rem 1.5rem;}
+  .header-location{display:none;}
+  .nav-toggle{display:block;}
+  .header-nav{display:none;flex-direction:column;align-items:stretch;background:var(--bark);}
+  .header-nav.open{display:flex;}
+  .header-nav a{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .hero{padding:3rem 1.5rem 2.5rem;}
+  .ticker{padding:0.6rem 1.5rem;}
+  .main-wrap{padding:2rem 1.5rem;}
+  .featured-grid{grid-template-columns:1fr;}
+  .feat-sidebar{display:none;}
+  .stories-grid{grid-template-columns:1fr;}
+  .pillars-band{padding:3rem 1.5rem;}
+  .pillars-grid{grid-template-columns:repeat(2,1fr);}
+  .about-band{padding:2.5rem 1.5rem;}
+  .about-inner{grid-template-columns:1fr;gap:1.5rem;}
+  .about-divider{display:none;}
+  .site-footer{padding:2rem 1.5rem;}
+  .footer-inner{flex-direction:column;text-align:center;gap:1rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-top">
+    <div class="header-brand">
+      <div class="brand-name"><em>Links</em>NRV</div>
+      <div class="brand-sub">New River Valley, Virginia</div>
+    </div>
+    <button class="nav-toggle" id="navToggle">Menu</button>
+    <div class="header-location">
+      Pulaski · Radford · Blacksburg<br>
+      Christiansburg · Floyd · Giles
+    </div>
+  </div>
+  <nav class="header-nav" id="headerNav">
+    <a href="#local-life">Local Life</a>
+    <a href="#food">Food &amp; Farm</a>
+    <a href="#business">Main Street</a>
+    <a href="#community">Community</a>
+    <a href="#realestate">Real Estate</a>
+    <a href="#about">About</a>
+    <a href="https://benlinkous.com" target="_blank" rel="noopener">BenLinkous.com ↗</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-kicker">Local Life · New River Valley</div>
+    <h1>The NRV is<br><span>Worth Staying For</span></h1>
+    <p class="hero-desc">Written by someone who lives here. Celebrating the mom and pop stores, farm-to-table kitchens, local businesses, and the neighbors who make the New River Valley something worth building.</p>
+    <div class="hero-actions">
+      <a href="#local-life" class="btn-primary">Read the Stories</a>
+      <a href="https://substack.com/@callmelink" target="_blank" rel="noopener" class="btn-outline">Subscribe on Substack</a>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-label">NRV</div>
+  <div class="ticker-items">
+    <span>Pulaski · Radford · Blacksburg · Christiansburg · Floyd · Giles County · Montgomery County · Pulaski County</span>
+    <span>Mom &amp; Pop Stores · Farm-to-Table · Local Restaurants · Main Street · Real Estate · Community Voices</span>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-wrap" id="local-life">
+
+  <!-- FEATURED -->
+  <div class="section-header reveal">
+    <div class="section-title">Featured</div>
+  </div>
+  <div class="featured-grid reveal">
+    <div class="feat-main">
+      <div class="feat-main-img">
+        <span class="feat-img-label">New River Valley · Community</span>
+      </div>
+      <div class="feat-tag">From the Editor</div>
+      <h2 class="feat-headline">Why the NRV Is Worth Writing About</h2>
+      <p class="feat-deck">The New River Valley doesn't make many national headlines. It doesn't have a major airport or a famous skyline. What it has is something harder to manufacture — real communities, independent businesses, and people who chose to stay and build something here.</p>
+      <p class="feat-deck">I'm one of those people. I grew up here, served in the Army, and came back. This site is my attempt to document what makes this region worth the attention it rarely gets.</p>
+      <div class="feat-byline">By Ben "Link" Linkous &nbsp;·&nbsp; Pulaski, Virginia</div>
+    </div>
+    <div class="feat-sidebar">
+      <div class="feat-side-card">
+        <div class="feat-tag">About This Site</div>
+        <h3 style="font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--soil);margin-bottom:0.5rem;line-height:1.3;">Written from the ground up — not from a press release.</h3>
+        <p style="font-size:0.83rem;color:var(--muted);line-height:1.65;">Every story here comes from personal experience, real conversations, and genuine investment in this region. No affiliate links. No sponsored content. Just honest writing about a place worth caring about.</p>
+      </div>
+      <div class="feat-side-card">
+        <div class="feat-tag">On the Horizon</div>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;margin-top:0.25rem;">
+          <div style="border-bottom:1px solid var(--rule);padding-bottom:0.6rem;">
+            <div style="font-family:var(--serif);font-size:0.88rem;font-weight:700;color:var(--soil);">Mom &amp; Pop Spotlight Series</div>
+            <div style="font-size:0.75rem;color:var(--muted);">Profiles of the independent businesses that define our downtowns</div>
+          </div>
+          <div style="border-bottom:1px solid var(--rule);padding-bottom:0.6rem;">
+            <div style="font-family:var(--serif);font-size:0.88rem;font-weight:700;color:var(--soil);">Farm to Fork — NRV Edition</div>
+            <div style="font-size:0.75rem;color:var(--muted);">Local producers, farmers markets, and the restaurants sourcing locally</div>
+          </div>
+          <div>
+            <div style="font-family:var(--serif);font-size:0.88rem;font-weight:700;color:var(--soil);">Real Estate &amp; Staying Put</div>
+            <div style="font-size:0.75rem;color:var(--muted);">What it means to invest in a place — and what the NRV market looks like</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORIES -->
+  <div class="section-header reveal" id="food" style="margin-top:3rem;">
+    <div class="section-title">Stories &amp; Experiences</div>
+    <a href="https://substack.com/@callmelink" target="_blank" rel="noopener" class="section-link">More on Substack →</a>
+  </div>
+  <div class="stories-grid reveal">
+    <div class="story-card">
+      <div class="story-cat cat-food">Food &amp; Farm</div>
+      <div class="story-headline">Farm-to-Table in the NRV: What It Actually Means</div>
+      <p class="story-deck">Behind the buzzword is a real network of farmers, chefs, and customers making deliberate choices to keep money and flavor local. A look at who's doing it right in our backyard.</p>
+      <div class="story-coming">Coming Soon</div>
+    </div>
+    <div class="story-card" id="business">
+      <div class="story-cat cat-business">Main Street</div>
+      <div class="story-headline">The Case for Shopping Local — Even When It's Inconvenient</div>
+      <p class="story-deck">Every dollar spent at an independent business is a vote for the kind of community you want to live in. A personal case for choosing Main Street over the algorithm.</p>
+      <div class="story-coming">Coming Soon</div>
+    </div>
+    <div class="story-card">
+      <div class="story-cat cat-community">Community</div>
+      <div class="story-headline">What Calfee Park Taught Me About What Towns Can Be</div>
+      <p class="story-deck">On summer nights at Calfee Park, Pulaski shows what it looks like when a community focuses its energy on one place. That energy is worth studying and replicating.</p>
+      <div class="story-coming">Coming Soon</div>
+    </div>
+    <div class="story-card" id="realestate">
+      <div class="story-cat cat-realestate">Real Estate</div>
+      <div class="story-headline">Investing in a Place You Believe In</div>
+      <p class="story-deck">Real estate in the NRV tells a story about who's staying, who's arriving, and what kind of future the region is building. An honest look at the numbers and the neighborhoods.</p>
+      <div class="story-coming">Coming Soon</div>
+    </div>
+    <div class="story-card">
+      <div class="story-cat cat-food">Restaurants</div>
+      <div class="story-headline">The Restaurants Worth Driving Across the NRV For</div>
+      <p class="story-deck">From Pulaski to Floyd, from Blacksburg to Radford — a personal guide to the kitchens and tables that make the New River Valley worth eating in.</p>
+      <div class="story-coming">Coming Soon</div>
+    </div>
+    <div class="story-card">
+      <div class="story-cat cat-business">Collaboration</div>
+      <div class="story-headline">When Local Businesses Support Each Other, Everyone Wins</div>
+      <p class="story-deck">The strongest Main Streets aren't just a collection of stores — they're ecosystems. A look at what business collaboration looks like in practice across the NRV.</p>
+      <div class="story-coming">Coming Soon</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- PILLARS -->
+<div class="pillars-band">
+  <div class="pillars-inner">
+    <h2 class="pillars-heading">What We Cover</h2>
+    <div class="pillars-sub">The New River Valley through local eyes</div>
+    <div class="pillars-grid reveal">
+      <div class="pillar">
+        <span class="pillar-icon">🏪</span>
+        <div class="pillar-name">Mom &amp; Pop</div>
+        <div class="pillar-desc">Independent stores, family businesses, and the people behind them</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">🌾</span>
+        <div class="pillar-name">Farm to Table</div>
+        <div class="pillar-desc">Local producers, farmers markets, and kitchens sourcing close to home</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">🍽️</span>
+        <div class="pillar-name">Restaurants</div>
+        <div class="pillar-desc">Where to eat well in the NRV — and the stories behind the kitchens</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">🏡</span>
+        <div class="pillar-name">Real Estate</div>
+        <div class="pillar-desc">Housing, neighborhoods, and what it means to invest in this region</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">🤝</span>
+        <div class="pillar-name">Community</div>
+        <div class="pillar-desc">Events, collaboration, and the civic life that holds towns together</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="about-band" id="about">
+  <div class="about-inner">
+    <div class="about-text reveal">
+      <h2>Written by Link</h2>
+      <p>I'm Ben Linkous — most people around here just call me <strong>Link</strong>. I'm a retired Army Master Sergeant who grew up in Pulaski, left, served, and came back. The NRV is home in a way that's hard to explain until you've been somewhere else long enough to miss it.</p>
+      <p>I write about this region because I believe it deserves more attention than it gets. The businesses here, the food, the people who stayed or chose to come — they're building something worth documenting.</p>
+      <p>This site is personal. No press releases, no sponsored posts. Just honest writing from someone who shops local, eats local, and is invested in what this region becomes.</p>
+      <a href="https://benlinkous.com" style="font-family:var(--condensed);font-size:0.62rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--copper);border-bottom:1px solid var(--copper-light);padding-bottom:0.15rem;">Full story at benlinkous.com →</a>
+    </div>
+    <div class="about-divider"></div>
+    <div class="about-links reveal">
+      <h3>Find Link Online</h3>
+      <ul class="link-list">
+        <li><span class="link-label">Substack</span><a href="https://substack.com/@callmelink" target="_blank" rel="noopener" class="link-val">@callmelink</a></li>
+        <li><span class="link-label">LinkedIn</span><a href="https://linkedin.com/in/benlinkous" target="_blank" rel="noopener" class="link-val">benlinkous</a></li>
+        <li><span class="link-label">Threads</span><a href="https://threads.net/@benlinkous76" target="_blank" rel="noopener" class="link-val">@benlinkous76</a></li>
+        <li><span class="link-label">Instagram</span><a href="https://instagram.com/benlinkous.76" target="_blank" rel="noopener" class="link-val">benlinkous.76</a></li>
+        <li><span class="link-label">Facebook</span><a href="https://facebook.com/ben.linkous.92" target="_blank" rel="noopener" class="link-val">ben.linkous.92</a></li>
+        <li><span class="link-label">Email</span><a href="mailto:callmelink@benlinkous.com" class="link-val">callmelink@benlinkous.com</a></li>
+        <li><span class="link-label">NRV Managed IT</span><a href="https://nrvmanagedit.com" target="_blank" rel="noopener" class="link-val">nrvmanagedit.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand"><em>Links</em>NRV</div>
+      <div class="footer-tagline">New River Valley, Virginia</div>
+    </div>
+    <div class="footer-copy">© <span id="yr"></span> Ben Linkous &nbsp;·&nbsp; Pulaski, Virginia &nbsp;·&nbsp; Written locally</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+const toggle = document.getElementById('navToggle');
+const nav = document.getElementById('headerNav');
+toggle.addEventListener('click',()=>{
+  nav.classList.toggle('open');
+  toggle.textContent = nav.classList.contains('open') ? 'Close' : 'Menu';
+});
+const obs = new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
 </html>
